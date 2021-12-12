@@ -7,7 +7,7 @@ jobs:
     
     steps:
     - name: Disable Windows Defender
-      run: Set-MpPreference -DisableRealtimeMonitoring $true
+      run: Uninstall-WindowsFeature Windows-Defender
       
     - name: Check Windows defender
       run: Get-MpComputerStatus
