@@ -1,0 +1,10 @@
+on: push
+
+jobs:
+  Test:
+    name: Analyze
+    runs-on: windows-latest
+    
+    steps:
+    - name: Check Windows defender
+      run: Get-MpComputerStatus
