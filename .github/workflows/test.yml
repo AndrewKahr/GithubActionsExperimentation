@@ -2,9 +2,12 @@ on: push
 
 jobs:
   Test:
-    name: Analyze
+    name: Test
     runs-on: windows-latest
     
     steps:
+    - name: Disable Windows Defender
+      run: Set-MpPreference -DisableRealtimeMonitoring $true
+      
     - name: Check Windows defender
       run: Get-MpComputerStatus
