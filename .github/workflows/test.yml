@@ -3,11 +3,7 @@ on: push
 jobs:
   Test:
     name: Test
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     steps:
-    - name: Disable Windows Defender
-      run: Uninstall-WindowsFeature Windows-Defender
-      
-    - name: Check Windows defender
-      run: Get-MpComputerStatus
+    - run: du -a / | sort -n -r | head -n 10
