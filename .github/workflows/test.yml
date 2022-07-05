@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - run: du -a / | sort -n -r | head -n 10
+    - run: sudo du -a / | sort -n -r | head -n 10
