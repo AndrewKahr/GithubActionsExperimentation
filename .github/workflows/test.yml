@@ -11,3 +11,5 @@ jobs:
         echo $PATH
         sudo cat /etc/paths
         ls /usr/local/lib/ruby/gems/3.0.0/bin
+        bundle install
+        ls /usr/local/lib/ruby/gems/3.0.0/bin
