@@ -1,13 +1,38 @@
 on: push
 
 jobs:
-  Test:
-    name: Test
+  TestLin:
+    name: TestLin
     runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v4
     
     - run: |
+        whoami
+        echo "::error ::Crazy Error"
+        echo "::warning ::Crazy Warning"
+
+  TestWin:
+    name: TestWin
+    runs-on: windwos-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - run: |
+        whoami
+        echo "::error ::Crazy Error"
+        echo "::warning ::Crazy Warning"
+
+  TestMac:
+    name: TestMac
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - run: |
+        whoami
         echo "::error ::Crazy Error"
         echo "::warning ::Crazy Warning"
