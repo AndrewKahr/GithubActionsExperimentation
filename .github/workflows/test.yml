@@ -8,31 +8,25 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - run: |
-        whoami
-        echo "::error ::Crazy Error"
-        echo "::warning ::Crazy Warning"
-
-  TestWin:
-    name: TestWin
-    runs-on: windows-latest
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - run: |
-        whoami
-        echo "::error ::Crazy Error"
-        echo "::warning ::Crazy Warning"
-
-  TestMac:
-    name: TestMac
-    runs-on: macos-latest
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - run: |
-        whoami
-        echo "::error ::Crazy Error"
-        echo "::warning ::Crazy Warning"
+    - name: Run
+      env:
+        VARIABLE: >-
+             ${{ 
+                join(
+                  fromJSON(
+                    '[ 
+                        "${{ matrix.customParameters }}", 
+                        "-buildNumber", "${{ github.run_number }}",
+                        "-storefront", "asdf", 
+                        "-buildEnvironment", "asdfa",
+                        "-supabaseUrl", "asdf",
+                        "-supabaseAnonKey", "asdfas",
+                        "-gameAnalyticsGameKeyAndroid", "$dfsdfasdfa}",
+                        "-gameAnalyticsSecretKeyAndroid", "aafdfsasdf",
+                     ]'
+                  ),
+                ' ')
+             }}
+      run: |
+        echo $VARIABLE
+        
