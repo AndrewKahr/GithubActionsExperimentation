@@ -15,13 +15,13 @@ jobs:
                 join(
                   fromJSON(
                     '[ 
-                        "${{ matrix.customParameters }}", 
-                        "-buildNumber", "${{ github.run_number }}",
+                        github.run_number, 
+                        "-buildNumber", ${{ github.run_number }},
                         "-storefront", "asdf", 
                         "-buildEnvironment", "asdfa",
                         "-supabaseUrl", "asdf",
                         "-supabaseAnonKey", "asdfas",
-                        "-gameAnalyticsGameKeyAndroid", "$dfsdfasdfa}",
+                        "-gameAnalyticsGameKeyAndroid", "dfsdfasdfa",
                         "-gameAnalyticsSecretKeyAndroid", "aafdfsasdf",
                      ]'
                   ),
