@@ -16,7 +16,7 @@ jobs:
                   fromJSON(
                       '[ 
                         "${{ github.run_number }}", 
-                        "-buildNumber", ${{ github.run_number }},
+                        "-buildNumber", "${{ github.run_number }}",
                         "-storefront", "asdf", 
                         "-buildEnvironment", "asdfa",
                         "-supabaseUrl", "asdf",
