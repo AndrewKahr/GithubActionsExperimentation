@@ -15,7 +15,7 @@ jobs:
                 join(
                   fromJSON(
                       '[ 
-                        '${{ github.run_number }}', 
+                        "${{ github.run_number }}", 
                         "-buildNumber", ${{ github.run_number }},
                         "-storefront", "asdf", 
                         "-buildEnvironment", "asdfa",
