@@ -13,8 +13,9 @@ jobs:
         VARIABLE: >-
              ${{ 
                 join(
-                      [ 
-                        ${{ github.run_number }}, 
+                  fromJSON(
+                      '[ 
+                        '${{ github.run_number }}', 
                         "-buildNumber", ${{ github.run_number }},
                         "-storefront", "asdf", 
                         "-buildEnvironment", "asdfa",
@@ -22,7 +23,7 @@ jobs:
                         "-supabaseAnonKey", "asdfas",
                         "-gameAnalyticsGameKeyAndroid", "dfsdfasdfa",
                         "-gameAnalyticsSecretKeyAndroid", "aafdfsasdf",
-                      ]
+                      ]'
                   ),
                 ' ')
              }}
