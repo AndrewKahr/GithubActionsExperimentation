@@ -8,25 +8,17 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Run
-      env:
-        VARIABLE: >-
-             ${{ 
-                join(
-                  fromJSON(
-                      '[ 
-                        '${{ github.run_number }}', 
-                        "-buildNumber", "${{ github.run_number }}",
-                        "-storefront", "asdf", 
-                        "-buildEnvironment", "asdfa",
-                        "-supabaseUrl", "asdf",
-                        "-supabaseAnonKey", "asdfas",
-                        "-gameAnalyticsGameKeyAndroid", "dfsdfasdfa",
-                        "-gameAnalyticsSecretKeyAndroid", "aafdfsasdf",
-                      ]'
-                  ),
-                ' ')
-             }}
+    - name: Build Params
+      id: buildParams
       run: |
-        echo $VARIABLE
+          customParameters='"[
+                        "-buildNumber", "${{ github.run_number }}",
+                        "${{ matrix.customParameters }}",
+                     ]"'
+
+          customParameters=$(echo "$customParameters" | tr -d '\n')
+          echo $customParameters
+          echo "customParameters=\"$customParameters\"" >> "$GITHUB_OUTPUT"
         
+    - name: Echo Params
+      run: echo ${{ steps.buildParams.outputs.customParameters }}
