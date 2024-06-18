@@ -13,7 +13,7 @@ jobs:
       run: |
           customParameters='"[
                         \"-buildNumber\", \"${{ github.run_number }}\",
-                        \"${{ matrix.customParameters }}\",
+                        \"${{ matrix.customParameters }}\"
                      ]"'
 
           customParameters=$(echo "$customParameters" | tr -d '\n')
