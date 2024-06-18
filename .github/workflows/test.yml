@@ -19,6 +19,9 @@ jobs:
           customParameters=$(echo "$customParameters" | tr -d '\n')
           echo $customParameters
           echo "customParameters=$customParameters" >> "$GITHUB_OUTPUT"
+
+          customParameters2='["param1","param2","param3"]'
+          echo "customParameters2=$customParameters2" >> "$GITHUB_OUTPUT"
         
     - name: Echo Params
       run: |
@@ -27,3 +30,4 @@ jobs:
         echo ${{ join(fromJSON(steps.buildParams.outputs.customParameters), ' ') }}
         echo ${{ fromJSON('["param1","param2","param3"]') }}
         echo ${{ join(fromJSON('["param1","param2","param3"]'), ' ') }}
+        echo ${{ join(fromJSON(steps.buildParams.outputs.customParameters2), ' ') }}
