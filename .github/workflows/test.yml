@@ -18,7 +18,7 @@ jobs:
 
           customParameters=$(echo "$customParameters" | tr -d '\n')
           echo $customParameters
-          echo "customParameters=\"$customParameters\"" >> "$GITHUB_OUTPUT"
+          echo "customParameters=$customParameters" >> "$GITHUB_OUTPUT"
         
     - name: Echo Params
       run: echo ${{ steps.buildParams.outputs.customParameters }}
