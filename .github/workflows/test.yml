@@ -23,4 +23,5 @@ jobs:
     - name: Echo Params
       run: |
         echo ${{ steps.buildParams.outputs.customParameters }}
+        echo ${{ fromJSON(steps.buildParams.outputs.customParameters) }}
         echo ${{ join(fromJSON(steps.buildParams.outputs.customParameters), ' ') }}
